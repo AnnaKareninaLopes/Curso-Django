@@ -995,7 +995,7 @@ function setNamespacing(on) {
  * @param {String} [flags] Any combination of flags.
  *   Native flags:
  *     - `d` - indices for capturing groups (ES2021)
- *     - `g` - global
+ *     - `g` - global_templates
  *     - `i` - ignore case
  *     - `m` - multiline anchors
  *     - `u` - unicode (ES6)
@@ -1369,7 +1369,7 @@ XRegExp.exec = function (str, regex, pos, sticky) {
 };
 /**
  * Executes a provided function once per regex match. Searches always start at the beginning of the
- * string and continue until the end, regardless of the state of the regex's `global` property and
+ * string and continue until the end, regardless of the state of the regex's `global_templates` property and
  * initial `lastIndex`.
  *
  * @memberOf XRegExp
@@ -1418,7 +1418,7 @@ XRegExp.forEach = function (str, regex, callback) {
  * @example
  *
  * const globalCopy = XRegExp.globalize(/regex/);
- * globalCopy.global; // -> true
+ * globalCopy.global_templates; // -> true
  */
 
 
@@ -1499,7 +1499,7 @@ XRegExp.isRegExp = function (value) {
 // `isRegExp` is used heavily by internals including regex construction
 
 /**
- * Returns the first matched string, or in global mode, an array containing all matched strings.
+ * Returns the first matched string, or in global_templates mode, an array containing all matched strings.
  * This is essentially a more convenient re-implementation of `String.prototype.match` that gives
  * the result types you actually want (string instead of `exec`-style array in match-first mode,
  * and an empty array instead of `null` when no matches are found in match-all mode). It also lets
@@ -1624,7 +1624,7 @@ XRegExp.matchChain = function (str, chain) {
 /**
  * Returns a new string with one or all matches of a pattern replaced. The pattern can be a string
  * or regex, and the replacement can be a string or a function to be called for each match. To
- * perform a global search and replace, use the optional `scope` argument or include flag g if using
+ * perform a global_templates search and replace, use the optional `scope` argument or include flag g if using
  * a regex. Replacement strings can use `$<n>` or `${n}` for named and numbered backreferences.
  * Replacement functions can use named backreferences via the last argument. Also fixes browser bugs
  * compared to the native `String.prototype.replace` and can be used reliably cross-browser.
@@ -2797,7 +2797,7 @@ require('../../modules/esnext.symbol.replace-all');
 module.exports = parent;
 
 },{"../../actual/symbol":33,"../../modules/esnext.symbol.async-dispose":200,"../../modules/esnext.symbol.dispose":201,"../../modules/esnext.symbol.matcher":202,"../../modules/esnext.symbol.metadata":203,"../../modules/esnext.symbol.observable":204,"../../modules/esnext.symbol.pattern-match":205,"../../modules/esnext.symbol.replace-all":206}],57:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var isCallable = require('../internals/is-callable');
 var tryToString = require('../internals/try-to-string');
 
@@ -2810,7 +2810,7 @@ module.exports = function (argument) {
 };
 
 },{"../internals/global":104,"../internals/is-callable":114,"../internals/try-to-string":162}],58:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var isCallable = require('../internals/is-callable');
 
 var String = global.String;
@@ -2825,7 +2825,7 @@ module.exports = function (argument) {
 module.exports = function () { /* empty */ };
 
 },{}],60:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var isObject = require('../internals/is-object');
 
 var String = global.String;
@@ -2853,7 +2853,7 @@ module.exports = !STRICT_METHOD ? function forEach(callbackfn /* , thisArg */) {
 
 },{"../internals/array-iteration":64,"../internals/array-method-is-strict":66}],62:[function(require,module,exports){
 'use strict';
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var bind = require('../internals/function-bind-context');
 var call = require('../internals/function-call');
 var toObject = require('../internals/to-object');
@@ -3043,7 +3043,7 @@ module.exports = function (METHOD_NAME, argument) {
 };
 
 },{"../internals/fails":94}],67:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var toAbsoluteIndex = require('../internals/to-absolute-index');
 var lengthOfArrayLike = require('../internals/length-of-array-like');
 var createProperty = require('../internals/create-property');
@@ -3113,7 +3113,7 @@ var merge = function (array, left, right, comparefn) {
 module.exports = mergeSort;
 
 },{"../internals/array-slice-simple":67}],70:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var isArray = require('../internals/is-array');
 var isConstructor = require('../internals/is-constructor');
 var isObject = require('../internals/is-object');
@@ -3210,7 +3210,7 @@ module.exports = function (it) {
 };
 
 },{"../internals/function-uncurry-this":99}],75:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var TO_STRING_TAG_SUPPORT = require('../internals/to-string-tag-support');
 var isCallable = require('../internals/is-callable');
 var classofRaw = require('../internals/classof-raw');
@@ -3427,7 +3427,7 @@ module.exports = !fails(function () {
 });
 
 },{"../internals/fails":94}],84:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var isObject = require('../internals/is-object');
 
 var document = global.document;
@@ -3493,7 +3493,7 @@ var getBuiltIn = require('../internals/get-built-in');
 module.exports = getBuiltIn('navigator', 'userAgent') || '';
 
 },{"../internals/get-built-in":100}],89:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var userAgent = require('../internals/engine-user-agent');
 
 var process = global.process;
@@ -3549,7 +3549,7 @@ module.exports = [
 
 },{}],93:[function(require,module,exports){
 'use strict';
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var apply = require('../internals/function-apply');
 var uncurryThis = require('../internals/function-uncurry-this');
 var isCallable = require('../internals/is-callable');
@@ -3576,13 +3576,13 @@ var wrapConstructor = function (NativeConstructor) {
 
 /*
   options.target      - name of the target object
-  options.global      - target is the global object
+  options.global_templates      - target is the global_templates object
   options.stat        - export as static methods of target
   options.proto       - export as prototype methods of target
   options.real        - real prototype method for the `pure` version
   options.forced      - export even if the native feature is available
   options.bind        - bind methods to the target, required for the `pure` version
-  options.wrap        - wrap constructors to preventing global pollution, required for the `pure` version
+  options.wrap        - wrap constructors to preventing global_templates pollution, required for the `pure` version
   options.unsafe      - use the simple assignment of property instead of delete + defineProperty
   options.sham        - add a flag to not completely full polyfills
   options.enumerable  - export as enumerable property
@@ -3620,9 +3620,9 @@ module.exports = function (options, source) {
 
     if (USE_NATIVE && typeof targetProperty == typeof sourceProperty) continue;
 
-    // bind timers to global for call from export context
+    // bind timers to global_templates for call from export context
     if (options.bind && USE_NATIVE) resultProperty = bind(sourceProperty, global);
-    // wrap global constructors for prevent changs in this version
+    // wrap global_templates constructors for prevent changs in this version
     else if (options.wrap && USE_NATIVE) resultProperty = wrapConstructor(sourceProperty);
     // make static versions for prototype methods
     else if (PROTO && isCallable(sourceProperty)) resultProperty = uncurryThis(sourceProperty);
@@ -3727,7 +3727,7 @@ module.exports = bind ? function (fn) {
 
 },{}],100:[function(require,module,exports){
 var path = require('../internals/path');
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var isCallable = require('../internals/is-callable');
 
 var aFunction = function (variable) {
@@ -3754,7 +3754,7 @@ module.exports = function (it) {
 };
 
 },{"../internals/classof":75,"../internals/get-method":103,"../internals/iterators":122,"../internals/well-known-symbol":166}],102:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var call = require('../internals/function-call');
 var aCallable = require('../internals/a-callable');
 var anObject = require('../internals/an-object');
@@ -3787,7 +3787,7 @@ var check = function (it) {
 
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 module.exports =
-  // eslint-disable-next-line es/no-global-this -- safe
+  // eslint-disable-next-line es/no-global_templates-this -- safe
   check(typeof globalThis == 'object' && globalThis) ||
   check(typeof window == 'object' && window) ||
   // eslint-disable-next-line no-restricted-globals -- safe
@@ -3831,7 +3831,7 @@ module.exports = !DESCRIPTORS && !fails(function () {
 });
 
 },{"../internals/descriptors":83,"../internals/document-create-element":84,"../internals/fails":94}],109:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var uncurryThis = require('../internals/function-uncurry-this');
 var fails = require('../internals/fails');
 var classof = require('../internals/classof-raw');
@@ -3866,7 +3866,7 @@ module.exports = store.inspectSource;
 
 },{"../internals/function-uncurry-this":99,"../internals/is-callable":114,"../internals/shared-store":149}],111:[function(require,module,exports){
 var NATIVE_WEAK_MAP = require('../internals/native-weak-map');
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var uncurryThis = require('../internals/function-uncurry-this');
 var isObject = require('../internals/is-object');
 var createNonEnumerableProperty = require('../internals/create-non-enumerable-property');
@@ -4053,7 +4053,7 @@ module.exports = function (it) {
 module.exports = true;
 
 },{}],119:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var getBuiltIn = require('../internals/get-built-in');
 var isCallable = require('../internals/is-callable');
 var isPrototypeOf = require('../internals/object-is-prototype-of');
@@ -4170,7 +4170,7 @@ module.exports = !!Object.getOwnPropertySymbols && !fails(function () {
 });
 
 },{"../internals/engine-v8-version":89,"../internals/fails":94}],125:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var isCallable = require('../internals/is-callable');
 var inspectSource = require('../internals/inspect-source');
 
@@ -4179,7 +4179,7 @@ var WeakMap = global.WeakMap;
 module.exports = isCallable(WeakMap) && /native code/.test(inspectSource(WeakMap));
 
 },{"../internals/global":104,"../internals/inspect-source":110,"../internals/is-callable":114}],126:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var fails = require('../internals/fails');
 var uncurryThis = require('../internals/function-uncurry-this');
 var toString = require('../internals/to-string');
@@ -4203,7 +4203,7 @@ module.exports = FORCED ? function parseInt(string, radix) {
 } : $parseInt;
 
 },{"../internals/fails":94,"../internals/function-uncurry-this":99,"../internals/global":104,"../internals/string-trim":152,"../internals/to-string":161,"../internals/whitespaces":167}],127:[function(require,module,exports){
-/* global ActiveXObject -- old IE, WSH */
+/* global_templates ActiveXObject -- old IE, WSH */
 var anObject = require('../internals/an-object');
 var defineProperties = require('../internals/object-define-properties');
 var enumBugKeys = require('../internals/enum-bug-keys');
@@ -4308,7 +4308,7 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
 };
 
 },{"../internals/an-object":60,"../internals/descriptors":83,"../internals/object-define-property":129,"../internals/object-keys":137,"../internals/to-indexed-object":154}],129:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var DESCRIPTORS = require('../internals/descriptors');
 var IE8_DOM_DEFINE = require('../internals/ie8-dom-define');
 var anObject = require('../internals/an-object');
@@ -4399,7 +4399,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 exports.f = Object.getOwnPropertySymbols;
 
 },{}],134:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var hasOwn = require('../internals/has-own-property');
 var isCallable = require('../internals/is-callable');
 var toObject = require('../internals/to-object');
@@ -4516,7 +4516,7 @@ module.exports = TO_STRING_TAG_SUPPORT ? {}.toString : function toString() {
 };
 
 },{"../internals/classof":75,"../internals/to-string-tag-support":160}],141:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var call = require('../internals/function-call');
 var isCallable = require('../internals/is-callable');
 var isObject = require('../internals/is-object');
@@ -4562,7 +4562,7 @@ module.exports = function () {
 };
 
 },{"../internals/an-object":60}],145:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 
 var TypeError = global.TypeError;
 
@@ -4574,7 +4574,7 @@ module.exports = function (it) {
 };
 
 },{"../internals/global":104}],146:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 
 // eslint-disable-next-line es/no-object-defineproperty -- safe
 var defineProperty = Object.defineProperty;
@@ -4620,8 +4620,8 @@ module.exports = function (key) {
 };
 
 },{"../internals/shared":150,"../internals/uid":163}],149:[function(require,module,exports){
-var global = require('../internals/global');
-var setGlobal = require('../internals/set-global');
+var global = require('../internals/global_templates');
+var setGlobal = require('../internals/set-global_templates');
 
 var SHARED = '__core-js_shared__';
 var store = global[SHARED] || setGlobal(SHARED, {});
@@ -4758,7 +4758,7 @@ module.exports = function (argument) {
 };
 
 },{"../internals/to-integer-or-infinity":155}],157:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var requireObjectCoercible = require('../internals/require-object-coercible');
 
 var Object = global.Object;
@@ -4770,7 +4770,7 @@ module.exports = function (argument) {
 };
 
 },{"../internals/global":104,"../internals/require-object-coercible":145}],158:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var call = require('../internals/function-call');
 var isObject = require('../internals/is-object');
 var isSymbol = require('../internals/is-symbol');
@@ -4819,7 +4819,7 @@ test[TO_STRING_TAG] = 'z';
 module.exports = String(test) === '[object z]';
 
 },{"../internals/well-known-symbol":166}],161:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var classof = require('../internals/classof');
 
 var String = global.String;
@@ -4830,7 +4830,7 @@ module.exports = function (argument) {
 };
 
 },{"../internals/classof":75,"../internals/global":104}],162:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 
 var String = global.String;
 
@@ -4867,7 +4867,7 @@ var wellKnownSymbol = require('../internals/well-known-symbol');
 exports.f = wellKnownSymbol;
 
 },{"../internals/well-known-symbol":166}],166:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var shared = require('../internals/shared');
 var hasOwn = require('../internals/has-own-property');
 var uid = require('../internals/uid');
@@ -4900,7 +4900,7 @@ module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u
 },{}],168:[function(require,module,exports){
 'use strict';
 var $ = require('../internals/export');
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var fails = require('../internals/fails');
 var isArray = require('../internals/is-array');
 var isObject = require('../internals/is-object');
@@ -5091,7 +5091,7 @@ if (!IS_PURE && DESCRIPTORS && values.name !== 'values') try {
 },{"../internals/add-to-unscopables":59,"../internals/define-iterator":81,"../internals/descriptors":83,"../internals/internal-state":111,"../internals/is-pure":118,"../internals/iterators":122,"../internals/object-define-property":129,"../internals/to-indexed-object":154}],174:[function(require,module,exports){
 'use strict';
 var $ = require('../internals/export');
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var isArray = require('../internals/is-array');
 var isConstructor = require('../internals/is-constructor');
 var isObject = require('../internals/is-object');
@@ -5248,7 +5248,7 @@ $({ target: 'Array', proto: true, forced: FORCED }, {
 });
 
 },{"../internals/a-callable":57,"../internals/array-method-is-strict":66,"../internals/array-sort":69,"../internals/engine-ff-version":86,"../internals/engine-is-ie-or-edge":87,"../internals/engine-v8-version":89,"../internals/engine-webkit-version":90,"../internals/export":93,"../internals/fails":94,"../internals/function-uncurry-this":99,"../internals/length-of-array-like":123,"../internals/to-object":157,"../internals/to-string":161}],176:[function(require,module,exports){
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var setToStringTag = require('../internals/set-to-string-tag');
 
 // JSON[@@toStringTag] property
@@ -5361,7 +5361,7 @@ defineWellKnownSymbol('iterator');
 },{"../internals/define-well-known-symbol":82}],190:[function(require,module,exports){
 'use strict';
 var $ = require('../internals/export');
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var getBuiltIn = require('../internals/get-built-in');
 var apply = require('../internals/function-apply');
 var call = require('../internals/function-call');
@@ -5798,7 +5798,7 @@ defineWellKnownSymbol('replaceAll');
 },{"../internals/define-well-known-symbol":82}],207:[function(require,module,exports){
 require('../modules/es.array.iterator');
 var DOMIterables = require('../internals/dom-iterables');
-var global = require('../internals/global');
+var global = require('../internals/global_templates');
 var classof = require('../internals/classof');
 var createNonEnumerableProperty = require('../internals/create-non-enumerable-property');
 var Iterators = require('../internals/iterators');
